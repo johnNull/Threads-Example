@@ -11,7 +11,7 @@ ant -buildfile src/build.xml all
 -----------------------------------------------------------------------
 ## To run by specifying arguments from command line 
 ## We will use this to run your code
-ant -buildfile src/build.xml run -Darg0=INPUT_FILE -Darg1=OUTPUT_FILE -Darg2=DEBUG_VALUE
+ant -buildfile src/build.xml run -Darg0=INPUT_FILE -Darg1=OUTPUT_FILE -Darg2=NUM_THREADS -Darg3=DELETE_WORDS -Darg4=DEBUG_VALUE
 -----------------------------------------------------------------------
 
 ## To create tarball for submission
