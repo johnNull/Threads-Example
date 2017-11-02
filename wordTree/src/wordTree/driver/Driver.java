@@ -14,15 +14,9 @@ public class Driver {
 			FileProcessor fp = new FileProcessor(args[0]);
 			TreeManager bst = new TreeManager();
 			Results r = new Results(args[1]);
-			PopulateThread pt = new PopulateThread(fp, r, bst);
-			Thread t = new Thread(pt);
-			t.start();
-			String line = "";
-			/*System.out.println(fp.readWord());
-			while(line != null){
-				line = fp.readLine();
-				System.out.println(line);
-			}*/
+			String[] dltwords = {"quickly", "programmer", "think"};
+			CreateWorkers c = new CreateWorkers(fp, bst, r, 3, dltwords);
+			c.startPopulateWorkers();
 		}
 	}
 }

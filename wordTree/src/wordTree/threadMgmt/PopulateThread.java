@@ -21,7 +21,7 @@ public class PopulateThread implements Runnable {
 		while (line != null) {
 			words = line.split(" ");
 			for(int i = 0; i < words.length; i++){
-				System.out.println(words[i]);
+				//System.out.println(words[i]);
 				tree.populate(words[i]);
 			}
 			line = in.readLine();
