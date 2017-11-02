@@ -31,7 +31,7 @@ public class Counts {
 	}
 	
 	public int getCharacterCount() {
-		return charcterCount;
+		return characterCount;
 	}
 	
 	public int getUniqueCount() {

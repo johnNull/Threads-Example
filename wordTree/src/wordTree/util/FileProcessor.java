@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import wordTree.util.MyLogger;
 public class FileProcessor{
 	BufferedReader reader;
 	File file;
@@ -60,6 +59,28 @@ public class FileProcessor{
 		}
 		else{
 			//System.out.println("No file to be read");
+			return null;
+		}
+		return null;
+	}
+
+	public String readLine(){
+		String line = "";
+		if(file.exists()){
+			try{
+				line = reader.readLine();
+				if(line != null)
+					return line;
+				else{
+					return null;
+				}
+			}
+			catch(IOException e){
+				System.err.format("IOException: %s%n", e);
+			}
+		}
+		else{
+			System.out.println("No file to be read");
 			return null;
 		}
 		return null;

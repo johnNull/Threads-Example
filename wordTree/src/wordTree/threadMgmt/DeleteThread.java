@@ -2,22 +2,22 @@ package wordTree.threadMgmt;
 
 import wordTree.store.Results;
 import wordTree.util.FileProcessor;
-import wordTree.trees.Node;
+import wordTree.trees.TreeManager;
 
-public class DeleteThread extends Thread {
+public class DeleteThread implements Runnable {
 	private FileProcessor in;
 	private Results out;
-	private Node head;
+	private TreeManager tree;
 	private String word;
 	
-	public PopulateThread(FileProcessor f, Results r, Node n, String s) {
+	public DeleteThread(FileProcessor f, Results r, TreeManager tm, String s) {
 		in = f;
 		out = r;
-		head = n;
+		tree = tm;
 		word = s;
 	}
 	
 	public void run() {
-		head.delete(word);
+		tree.delete(word);
 	}
 }

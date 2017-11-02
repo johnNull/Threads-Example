@@ -73,7 +73,7 @@ public class Node {
 		//Determine value of count
 		if (count > 0) {
 			//Get character count
-			int charcterCount = count * word.length();
+			int characterCount = count * word.length();
 			
 			//Add counts
 			counts.addValues(count, characterCount, 1);
