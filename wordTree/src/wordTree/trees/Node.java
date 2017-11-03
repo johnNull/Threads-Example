@@ -40,21 +40,34 @@ public class Node {
 		}
 	}
 	
-	//Delete Word
-	public void delete(String w) {
+	//Search for Node with Word
+	public Node search(String w) {
 		//Get alphabetical ordering of words
 		int comparison = w.compareTo(word);
 		if (comparison == -1) {
-			//Delete left
-			left.populate(w);
-		} else if (comparison == 0) {
-			//Remove word count
-			if (count > 0) {
-				count--;
+			//Get value of left
+			if (left == null) {
+				return null;
+			} else {
+				return left.search(w);
 			}
+		} else if (comparison == 0) {
+			return this;
 		} else {
-			//Delete right
-			right.populate(w);
+			//Get value of right
+			if (right == null) {
+				return null;
+			} else {
+				return right.search(w);
+			}
+		}
+	}
+	
+	//Delete Word
+	public synchronized void delete() {
+		//Remove word count
+		if (count > 0) {
+			count--;
 		}
 	}
 	

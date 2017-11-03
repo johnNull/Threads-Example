@@ -19,8 +19,9 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * Write the sum and test results to specified file<p>
 	 * https://stackoverflow.com/questions/2885173/<p>
 	 * how-do-i-create-a-file-and-write-to-it-in-java
-	 */	
-	public void writeToFile(){
+	 */
+	//Note: We need to modify this function
+	public void writeSchedulesToFile(){
 		try{
 			MyLogger.writeMessage("Creating/finding output file", MyLogger.DebugLevel.IN_RESULTS);
 			if(directory != null && directory.contains(".txt")){
@@ -39,7 +40,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	/**
 	 * Write the sum and test results to specified file
 	 */
-	public void writeToStdout(){
+	//Note: We need to modify this function
+	public void writeToScreen(){
 		System.out.println(result);
 	}
 	
