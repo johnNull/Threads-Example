@@ -40,7 +40,7 @@ public class TreeManager {
 	}
 	
 	//Get counts
-	public Counts getCounts() {
+	public void getCounts(Results r) {
 		//Instantiate counts
 		Counts counts = new Counts();
 		
@@ -49,6 +49,11 @@ public class TreeManager {
 			head.getCounts(counts);
 		}
 		
-		return counts;
+		//Create output
+		String output = "";
+		output = output + "The total number of words: " + counts.getWordCount() + "\n";
+		output = output + "The total number of characters: " + counts.getCharacterCount() + "\n";
+		output = output + "The total number of distinct words: " + counts.getUniqueCount() + "\n";
+		r.append(output);
 	}
 }
