@@ -19,7 +19,7 @@ public class TreeManager {
 		}
 	}
 	
-	//Create head - Synchonized for safety
+	//Create head - Synchronized for safety
 	private synchronized void createHead(String word) {
 		if (head == null) {
 			head = new Node(word);

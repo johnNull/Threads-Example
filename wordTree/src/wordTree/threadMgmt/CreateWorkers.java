@@ -24,16 +24,32 @@ public class CreateWorkers {
 	}
 
 	public void startPopulateWorkers(){
+		ArrayList<Thread> threads = new ArrayList<Thread>();
+		
+		//Create threads
 		for(int i = 0; i < pts.length; i++){
-			Thread t = new Thread(pts[i]);
-			t.start();
+			threads.add(new Thread(pts[i]));
+			threads.get(i).start();
+		}
+		
+		//Wait for threads to finish
+		for(int i = 0; i < pts.length; i++){
+			threads.get(i).join();
 		}
 	}
 
 	public void startDeleteWorkers(){
+		ArrayList<Thread> threads = new ArrayList<Thread>();
+		
+		//Create threads
 		for(int i = 0; i < dlts.length; i++){
-			Thread t = new Thread(dlts[i]);
-			t.start();
+			threads.add(new Thread(dlts[i]));
+			threads.get(i).start();
+		}
+		
+		//Wait for threads to finish
+		for(int i = 0; i < dlts.length; i++){
+			threads.get(i).join();
 		}
 	}
 }
