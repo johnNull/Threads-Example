@@ -3,6 +3,7 @@ package wordTree.threadMgmt;
 import wordTree.util.FileProcessor;
 import wordTree.trees.TreeManager;
 import wordTree.store.Results;
+import java.util.ArrayList;
 
 public class CreateWorkers {
 	FileProcessor fp;
@@ -34,7 +35,11 @@ public class CreateWorkers {
 		
 		//Wait for threads to finish
 		for(int i = 0; i < pts.length; i++){
-			threads.get(i).join();
+			try {
+				threads.get(i).join();
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e.getMessage());
+			}
 		}
 	}
 
@@ -49,7 +54,11 @@ public class CreateWorkers {
 		
 		//Wait for threads to finish
 		for(int i = 0; i < dlts.length; i++){
-			threads.get(i).join();
+			try {
+				threads.get(i).join();
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e.getMessage());
+			}
 		}
 	}
 }

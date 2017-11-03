@@ -8,7 +8,7 @@ import wordTree.threadMgmt.CreateWorkers;
 
 public class Driver {
 	public static void main(String[] args) {
-		if(args == null || args.length < 3)
+		if(args == null || args.length < 5)
 			throw new IllegalArgumentException("Invalid arguments");
 		else{	
 			FileProcessor fp = new FileProcessor(args[0]);
@@ -17,6 +17,7 @@ public class Driver {
 			String[] dltwords = {"quickly", "programmer", "think"};
 			CreateWorkers c = new CreateWorkers(fp, bst, r, 3, dltwords);
 			c.startPopulateWorkers();
+			System.out.println(bst.toString());
 		}
 	}
 }

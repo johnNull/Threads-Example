@@ -92,4 +92,20 @@ public class Node {
 			counts.addValues(count, characterCount, 1);
 		}
 	}
+	
+	public String toString() {
+		String output = "";
+		
+		if (left != null) {
+			output = output + left.toString();
+		}
+		
+		output = output + word + " - " + count + "\n";
+		
+		if (right != null) {
+			output = output + right.toString();
+		}
+		
+		return output;
+	}
 }

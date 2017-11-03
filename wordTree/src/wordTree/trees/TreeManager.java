@@ -1,5 +1,7 @@
 package wordTree.trees;
 
+import wordTree.store.Results;
+
 //Needs to be updated, needs JavaDoc
 
 public class TreeManager {
@@ -55,5 +57,17 @@ public class TreeManager {
 		output = output + "The total number of characters: " + counts.getCharacterCount() + "\n";
 		output = output + "The total number of distinct words: " + counts.getUniqueCount() + "\n";
 		r.append(output);
+	}
+	
+	public String toString() {
+		String output = "Tree Values:\n";
+		
+		if (head == null) {
+			output = output + "[Empty]\n";
+		} else {
+			output = output + head.toString();
+		}
+		
+		return output;
 	}
 }
