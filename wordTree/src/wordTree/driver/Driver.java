@@ -18,6 +18,8 @@ public class Driver {
 			CreateWorkers c = new CreateWorkers(fp, bst, r, 3, dltwords);
 			c.startPopulateWorkers();
 			System.out.println(bst.toString());
+			c.startDeleteWorkers();
+			System.out.println(bst.toString());
 		}
 	}
 }

@@ -19,10 +19,12 @@ public class PopulateThread implements Runnable {
 	public void run() {
 		String line = in.readLine();
 		while (line != null) {
-			words = line.split(" ");
-			for(int i = 0; i < words.length; i++){
-				//System.out.println(words[i]);
-				tree.populate(words[i]);
+			if (!line.equals("")) {
+				words = line.split(" ");
+				for(int i = 0; i < words.length; i++){
+					//System.out.println(words[i]);
+					tree.populate(words[i]);
+				}
 			}
 			line = in.readLine();
 		}
