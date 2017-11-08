@@ -11,9 +11,9 @@ public class Driver {
 		if(args == null || args.length < 5)
 			throw new IllegalArgumentException("Invalid arguments");
 		else{	
-			FileProcessor fp = new FileProcessor(args[0]);
-			TreeManager bst = new TreeManager();
 			Results r = new Results(args[1]);
+			FileProcessor fp = new FileProcessor(args[0], r);
+			TreeManager bst = new TreeManager(r);
 			String[] dltwords = {"quickly", "programmer", "think"};
 			CreateWorkers c = new CreateWorkers(fp, bst, r, 3, dltwords);
 			c.startPopulateWorkers();

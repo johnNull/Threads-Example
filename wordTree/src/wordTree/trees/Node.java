@@ -1,6 +1,8 @@
 package wordTree.trees;
 
 //Note: Class will be updated appropriately, will add JavaDoc comments later
+import wordTree.util.MyLogger;
+import wordTree.util.MyLogger.DebugLevel;
 
 public class Node {
 	private String word;
@@ -9,7 +11,8 @@ public class Node {
 	private Node right;
 	
 	//Constructor
-	public Node(String w) {
+	public Node(String w, Results r) {
+		r.writeToScreen("Node created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		word = w;
 		count = 1;
 		left = null;
@@ -17,15 +20,15 @@ public class Node {
 	}
 	
 	//Populate Tree
-	public void populate(String w) {
+	public void populate(String w, Results r) {
 		//Get alphabetical ordering of words
 		int comparison = w.compareTo(word);
 		if (comparison == -1) {
 			//Populate left
 			if (left == null) {
-				left = new Node(w);
+				left = new Node(w, r);
 			} else {
-				left.populate(w);
+				left.populate(w, r);
 			}
 		} else if (comparison == 0) {
 			//Add word count
@@ -33,9 +36,9 @@ public class Node {
 		} else {
 			//Populate Right
 			if (right == null) {
-				right = new Node(w);
+				right = new Node(w, r);
 			} else {
-				right.populate(w);
+				right.populate(w, r);
 			}
 		}
 	}
@@ -64,9 +67,10 @@ public class Node {
 	}
 	
 	//Delete Word
-	public synchronized void delete() {
+	public synchronized void delete(Results r) {
 		//Remove word count
 		if (count > 0) {
+			r.writeToScreen(word + " deleted\n", MyLogger.DebugLevel.WORD_REMOVED);
 			count--;
 		}
 	}

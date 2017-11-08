@@ -1,6 +1,8 @@
 package wordTree.trees;
 
 import wordTree.store.Results;
+import wordTree.util.MyLogger;
+import wordTree.util.MyLogger.DebugLevel;
 
 //Needs to be updated, needs JavaDoc
 
@@ -8,35 +10,36 @@ public class TreeManager {
 	private Node head;
 
 	//Constructor
-	public TreeManager() {
+	public TreeManager(Results r) {
+		r.writeToScreen("TreeManager created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		head = null;
 	}
 	
 	//Populate tree
-	public void populate(String word) {
+	public void populate(String word, Results r) {
 		if (head == null) {
-			createHead(word);
+			createHead(word, r);
 		} else {
-			head.populate(word);
+			head.populate(word, r);
 		}
 	}
 	
 	//Create head - Synchronized for safety
-	private synchronized void createHead(String word) {
+	private synchronized void createHead(String word, Results r) {
 		if (head == null) {
-			head = new Node(word);
+			head = new Node(word, r);
 		} else {
-			head.populate(word);
+			head.populate(word, r);
 		}
 	}
 	
 	//Delete words
-	public void delete(String word) {
+	public void delete(String word, Results r) {
 		if (head != null) {
 			//Search for word, and delete instance
 			Node n = head.search(word);
 			if (n != null) {
-				n.delete();
+				n.delete(r);
 			}
 		}
 	}
@@ -44,7 +47,7 @@ public class TreeManager {
 	//Get counts
 	public void getCounts(Results r) {
 		//Instantiate counts
-		Counts counts = new Counts();
+		Counts counts = new Counts(r);
 		
 		//Get counts
 		if (head != null) {

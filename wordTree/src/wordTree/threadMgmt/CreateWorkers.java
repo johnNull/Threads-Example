@@ -4,6 +4,8 @@ import wordTree.util.FileProcessor;
 import wordTree.trees.TreeManager;
 import wordTree.store.Results;
 import java.util.ArrayList;
+import wordTree.util.MyLogger;
+import wordTree.util.MyLogger.DebugLevel;
 
 public class CreateWorkers {
 	FileProcessor fp;
@@ -13,6 +15,7 @@ public class CreateWorkers {
 	DeleteThread[] dlts;
 
 	public CreateWorkers(FileProcessor f, TreeManager t, Results r1, int nt, String[] dltwords){
+		rl.writeToScreen("CreateWorkers created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		fp = f;	
 		tm = t;
 		r = r1;

@@ -1,11 +1,15 @@
 package wordTree.trees;
 
+import wordTree.util.MyLogger;
+import wordTree.util.MyLogger.DebugLevel;
+
 public class Counts {
 	private int wordCount;
 	private int characterCount;
 	private int uniqueCount;
 
-	public Counts() {
+	public Counts(Results r) {
+		r.writeToScreen("Counts created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		wordCount = 0;
 		characterCount = 0;
 		uniqueCount = 0;

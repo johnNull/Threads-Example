@@ -3,15 +3,17 @@ package wordTree.store;
 import wordTree.util.FileDisplayInterface;
 import wordTree.util.StdoutDisplayInterface;
 import wordTree.util.MyLogger;
+import wordTree.util.MyLogger.DebugLevel;
 import java.io.PrintWriter;
 import java.io.IOException;
+
 public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	private String result = "", directory;
 	/**
 	 * Constructor for Results, sets output.txt directory
 	 */
 	public Results(String dir){
-		MyLogger.writeMessage("Creating Results instance", MyLogger.DebugLevel.CONSTRUCTOR);
+		writeToScreen("Creating Results instance", MyLogger.DebugLevel.CONSTRUCTOR);
 		directory = dir;
 	}
 
@@ -23,7 +25,6 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	//Note: We need to modify this function
 	public void writeSchedulesToFile(){
 		try{
-			MyLogger.writeMessage("Creating/finding output file", MyLogger.DebugLevel.IN_RESULTS);
 			if(directory != null && directory.contains(".txt")){
 				PrintWriter writer = new PrintWriter(directory, "UTF-8");
 				writer.println(result);
@@ -41,8 +42,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * Write the sum and test results to specified file
 	 */
 	//Note: We need to modify this function
-	public void writeToScreen(){
-		System.out.println(result);
+	public void writeToScreen(String s, DebugLevel l){
+		MyLogger.writeMessage(s, l);
 	}
 	
 	/**

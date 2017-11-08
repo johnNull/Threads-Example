@@ -3,13 +3,13 @@ package wordTree.util;
 public class MyLogger{
 
     /*DEBUG_VALUE=4 [Print to stdout everytime a constructor is called]
-      DEBUG_VALUE=3 [Print to stdout everytime the state is changed]
-      DEBUG_VALUE=2 [Print to stdout everytime a file operation occurs]
-      DEBUG_VALUE=1 [Print to stdout everytime a prohibited item is added]
+      DEBUG_VALUE=3 [Print to stdout everytime a thread's run() method is called]
+      DEBUG_VALUE=2 [Print to stdout everytime a line is read from the input file]
+      DEBUG_VALUE=1 [Print to stdout everytime a word is deleted from the Tree]
       DEBUG_VALUE=0 [No output should be printed from the application to stdout. It is ok to write to the output file though" ]
     */
 
-    public static enum DebugLevel {RELEASE, FROM_RESULTS, IN_RESULTS, IN_RUN, CONSTRUCTOR
+    public static enum DebugLevel {RELEASE, WORD_REMOVED, READ_LINE, IN_RUN, CONSTRUCTOR
                                    };
 
     private static DebugLevel debugLevel;
@@ -19,8 +19,8 @@ public class MyLogger{
 	switch (levelIn) {
 	  	case 4: debugLevel = DebugLevel.CONSTRUCTOR; break;
 	  	case 3: debugLevel = DebugLevel.IN_RUN; break;
-		case 2: debugLevel = DebugLevel.IN_RESULTS; break;
-		case 1: debugLevel = DebugLevel.FROM_RESULTS; break;
+		case 2: debugLevel = DebugLevel.READ_LINE; break;
+		case 1: debugLevel = DebugLevel.WORD_REMOVED; break;
 	  	case 0: debugLevel = DebugLevel.RELEASE; break;
 	}
     }
