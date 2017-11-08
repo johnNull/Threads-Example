@@ -15,7 +15,7 @@ public class CreateWorkers {
 	DeleteThread[] dlts;
 
 	public CreateWorkers(FileProcessor f, TreeManager t, Results r1, int nt, String[] dltwords){
-		rl.writeToScreen("CreateWorkers created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		r1.writeToScreen("CreateWorkers created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		fp = f;	
 		tm = t;
 		r = r1;

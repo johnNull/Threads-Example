@@ -29,7 +29,7 @@ public class PopulateThread implements Runnable {
 				words = line.split(" ");
 				for(int i = 0; i < words.length; i++){
 					//System.out.println(words[i]);
-					tree.populate(words[i]);
+					tree.populate(words[i], out);
 				}
 			}
 			line = in.readLine();

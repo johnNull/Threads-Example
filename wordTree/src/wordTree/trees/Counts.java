@@ -1,5 +1,6 @@
 package wordTree.trees;
 
+import wordTree.store.Results;
 import wordTree.util.MyLogger;
 import wordTree.util.MyLogger.DebugLevel;
 

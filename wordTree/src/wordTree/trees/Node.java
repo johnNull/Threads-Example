@@ -3,6 +3,7 @@ package wordTree.trees;
 //Note: Class will be updated appropriately, will add JavaDoc comments later
 import wordTree.util.MyLogger;
 import wordTree.util.MyLogger.DebugLevel;
+import wordTree.store.Results;
 
 public class Node {
 	private String word;

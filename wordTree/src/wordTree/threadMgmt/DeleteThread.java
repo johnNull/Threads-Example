@@ -23,6 +23,6 @@ public class DeleteThread implements Runnable {
 	
 	public void run() {
 		out.writeToScreen("DeleteThread running\n", MyLogger.DebugLevel.IN_RUN);
-		tree.delete(word);
+		tree.delete(word, out);
 	}
 }
