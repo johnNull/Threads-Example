@@ -31,10 +31,7 @@ public class FileProcessor{
 	}
 
 	/**
-	 * Returns the next line in the text file. ensures file exists &<p>
-	 * the next line is an int.<p>
-	 * https://www.programcreek.com/2011/03/<p>
-	 * java-read-a-file-line-by-line-code-example/<p>
+	 * Returns the next word in the text file. ensures file exists
 	 * @return The next line in the text file
 	 */
 	public synchronized String readWord(){
@@ -65,6 +62,12 @@ public class FileProcessor{
 		return null;
 	}
 
+	/**
+	 * Returns the next line in the text file. ensures file exists
+	 * https://www.programcreek.com/2011/03/<p>
+	 * java-read-a-file-line-by-line-code-example/<p>
+	 * @return The next line in the text file
+	 */
 	public String readLine(){
 		String line = "";
 		if(file.exists()){

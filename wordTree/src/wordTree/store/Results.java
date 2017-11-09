@@ -6,11 +6,14 @@ import wordTree.util.MyLogger;
 import wordTree.util.MyLogger.DebugLevel;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.lang.StringBuffer;
 
 public class Results implements FileDisplayInterface, StdoutDisplayInterface{
-	private String result = "", directory;
+	private String directory;
+	private StringBuffer result = new StringBuffer();
 	/**
 	 * Constructor for Results, sets output.txt directory
+	 * @param dir String specifying containing directory of input file
 	 */
 	public Results(String dir){
 		writeToScreen("Creating Results instance", MyLogger.DebugLevel.CONSTRUCTOR);
@@ -18,7 +21,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	}
 
 	/**
-	 * Write the sum and test results to specified file<p>
+	 * Write to specified file<p>
 	 * https://stackoverflow.com/questions/2885173/<p>
 	 * how-do-i-create-a-file-and-write-to-it-in-java
 	 */
@@ -27,7 +30,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 		try{
 			if(directory != null && directory.contains(".txt")){
 				PrintWriter writer = new PrintWriter(directory, "UTF-8");
-				writer.println(result);
+				writer.println(result.toString());
 				writer.close();
 			}
 			else
@@ -39,17 +42,19 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	}
 
 	/**
-	 * Write the sum and test results to specified file
+	 * Write a message to stdout based on DebugLevel
+	 * @param s String message to be written
+	 * @param l DebugLevel for when to write message
 	 */
-	//Note: We need to modify this function
 	public void writeToScreen(String s, DebugLevel l){
 		MyLogger.writeMessage(s, l);
 	}
 	
 	/**
-	 *Add test results to result string
+	 * Add test results to result String
+	 * @param s String to be appended to result String
 	 */
 	public void append(String s){
-		result += s;
+		result.append(s);
 	}
 }

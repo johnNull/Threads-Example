@@ -9,6 +9,10 @@ public class Counts {
 	private int characterCount;
 	private int uniqueCount;
 
+	/**
+	 * Constructor for Counts
+	 * @param r Results instance to print log messages
+	 */
 	public Counts(Results r) {
 		r.writeToScreen("Counts created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		wordCount = 0;
@@ -16,6 +20,12 @@ public class Counts {
 		uniqueCount = 0;
 	}
 	
+	/**
+	 * Sums up word count, unique word count, and character count
+	 * @param wc word count
+	 * @param cc character count
+	 * @param unique word count
+	 */
 	public void addValues(int wc, int cc, int uc) {
 		wordCount += wc;
 		if (wordCount < 0) {
@@ -31,14 +41,26 @@ public class Counts {
 		}
 	}
 	
+	/**
+	 * Gets the word count
+	 * @return word count
+	 */
 	public int getWordCount() {
 		return wordCount;
 	}
 	
+	/**
+	 * Gets the character count
+	 * @return character count
+	 */
 	public int getCharacterCount() {
 		return characterCount;
 	}
 	
+	/**
+	 * Gets the unique word count
+	 * @return unique word count
+	 */
 	public int getUniqueCount() {
 		return uniqueCount;
 	}

@@ -34,13 +34,11 @@ public class Driver {
 			Results r = new Results(args[1]);
 			FileProcessor fp = new FileProcessor(args[0], r);
 			TreeManager bst = new TreeManager(r);
-			String[] dltwords = {"quickly", "programmer", "think"};
 			CreateWorkers c = new CreateWorkers(fp, bst, r, Integer.parseInt(args[2]), args[3].split(" "));
 			c.startPopulateWorkers();
-			System.out.println(bst.toString());
 			c.startDeleteWorkers();
-			System.out.println();
-			System.out.println(bst.toString());
+			bst.getCounts(r);
+			r.writeSchedulesToFile();
 		}
 	}
 }

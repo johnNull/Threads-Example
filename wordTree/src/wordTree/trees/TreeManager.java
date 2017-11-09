@@ -9,14 +9,21 @@ import wordTree.util.MyLogger.DebugLevel;
 public class TreeManager {
 	private Node head;
 
-	//Constructor
+	/**
+	 * Constructor for TreeManager
+	 * @param r Results instance for printing
+	 */
 	public TreeManager(Results r) {
 		r.writeToScreen("TreeManager created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		head = null;
 	}
 	
-	//Populate tree
-	public void populate(String word, Results r) {
+	/**
+	 * Populate the tree with a Node
+	 * @param word String for which to create Node or add count to
+	 * @param r Results instance to print
+	 */
+	public synchronized void populate(String word, Results r) {
 		if (head == null) {
 			createHead(word, r);
 		} else {
@@ -24,7 +31,11 @@ public class TreeManager {
 		}
 	}
 	
-	//Create head - Synchronized for safety
+	/**
+	 * Creates head of tree - synchronized for safety
+	 * @param word String to create head Node with
+	 * @param r Results instance to print
+	 */
 	private synchronized void createHead(String word, Results r) {
 		if (head == null) {
 			head = new Node(word, r);
@@ -33,7 +44,11 @@ public class TreeManager {
 		}
 	}
 	
-	//Delete words
+	/**
+	 * Delete a count of a word
+	 * @param word String value to find node to delete from
+	 * @param r Results instance to print
+	 */
 	public void delete(String word, Results r) {
 		if (head != null) {
 			//Search for word, and delete instance
@@ -44,7 +59,10 @@ public class TreeManager {
 		}
 	}
 	
-	//Get counts
+	/**
+	 * Appends word count, character count, and unique word count to Results
+	 * @param r Results instance to be appended to
+	 */
 	public void getCounts(Results r) {
 		//Instantiate counts
 		Counts counts = new Counts(r);
@@ -62,6 +80,10 @@ public class TreeManager {
 		r.append(output);
 	}
 	
+	/**
+	 * Gets String representation of the tree
+	 * @return String representation of the tree 
+	 */
 	public String toString() {
 		String output = "Tree Values:\n";
 		

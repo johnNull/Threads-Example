@@ -27,20 +27,38 @@ my official university record. I also understand that I will receive a
 grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.Ã¢â‚¬Â
+John Null
+Michael Plohetski
 
 
-
-[Date: ]
+[Date: 11/8/2017]
 
 -----------------------------------------------------------------------
 
 Provide justification for Data Structures used in this assignment in
 term of Big O complexity (time and/or space)
 
+Binary Search Tree
+Average Cases:
+Space - O(n)
+Search - O(log n)
+Insert - O(log n)
+Delete - O(log n)
 
+Worst Cases:
+Space - O(n)
+Search - O(n)
+Insert - O(n)
+Delete - O(n)
 
+Results class StringBuffer
+Average Case & Worst Case
+Insert - O(1)
+other operations aren't used
 -----------------------------------------------------------------------
 
 Provide list of citations (urls, etc.) from where you have taken code
 (if any).
 
+https://www.programcreek.com/2011/03/  -> Reading from file
+https://stackoverflow.com/questions/2885173/<p>  -> Writing to file

@@ -14,6 +14,14 @@ public class CreateWorkers {
 	PopulateThread[] pts;
 	DeleteThread[] dlts;
 
+	/**
+	 * Constructor for CreateWorkers, creates all populate and delete threads
+	 * @param f FileProcessor to read input file
+	 * @param t TreeManager to set up binary search tree
+	 * @param r1 Results instance to print to screen and file
+	 * @param nt Number of threads to create
+	 * @param dltwords Words to be deleted
+	 */
 	public CreateWorkers(FileProcessor f, TreeManager t, Results r1, int nt, String[] dltwords){
 		r1.writeToScreen("CreateWorkers created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		fp = f;	
@@ -23,10 +31,13 @@ public class CreateWorkers {
 		dlts = new DeleteThread[nt];
 		for(int i = 0; i < nt; i++){
 			pts[i] = new PopulateThread(fp, r, tm);
-			dlts[i] = new DeleteThread(fp, r, tm, dltwords[i]);
+			dlts[i] = new DeleteThread(r, tm, dltwords[i]);
 		}
 	}
 
+	/**
+	 * starts all PopulateThreads, joins them
+	 */
 	public void startPopulateWorkers(){
 		ArrayList<Thread> threads = new ArrayList<Thread>();
 		
@@ -46,6 +57,9 @@ public class CreateWorkers {
 		}
 	}
 
+	/**
+	 * starts all DeleteThreads, joins them
+	 */
 	public void startDeleteWorkers(){
 		ArrayList<Thread> threads = new ArrayList<Thread>();
 		

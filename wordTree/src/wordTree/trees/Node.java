@@ -11,7 +11,9 @@ public class Node {
 	private Node left;
 	private Node right;
 	
-	//Constructor
+	/**
+	 * Constructor for Node in BST
+	 */
 	public Node(String w, Results r) {
 		r.writeToScreen("Node created\n", MyLogger.DebugLevel.CONSTRUCTOR);
 		word = w;
@@ -20,7 +22,11 @@ public class Node {
 		right = null;
 	}
 	
-	//Populate Tree
+	/**
+	 * Populate Tree with new Nodes
+	 * @param w String to compare and create new Node or add word count
+	 * @param r Results instance to pass into new Node
+	 */
 	public void populate(String w, Results r) {
 		//Get alphabetical ordering of words
 		int comparison = w.compareTo(word);
@@ -44,7 +50,11 @@ public class Node {
 		}
 	}
 	
-	//Search for Node with Word
+	/**
+	 * Search for Node with Word
+	 * @param w String to find matching Node
+	 * @return The matching node found in tree or null if not found
+	 */
 	public Node search(String w) {
 		//Get alphabetical ordering of words
 		int comparison = w.compareTo(word);
@@ -67,7 +77,10 @@ public class Node {
 		}
 	}
 	
-	//Delete Word
+	/**
+	 * Delete one word instance
+	 * @param r Results instance for printing log messages.
+	 */
 	public synchronized void delete(Results r) {
 		//Remove word count
 		if (count > 0) {
@@ -76,7 +89,10 @@ public class Node {
 		}
 	}
 	
-	//Get Counts
+	/**
+	 * Get word count, character count, and distinct word count.
+	 * @param counts Counts instance to store values
+	 */
 	public void getCounts(Counts counts) {
 		//Add left counts
 		if (left != null) {
@@ -98,6 +114,11 @@ public class Node {
 		}
 	}
 	
+
+	/**
+	 * Gets String version of subtree
+	 * @return String representing subtree.
+	 */
 	public String toString() {
 		String output = "";
 		

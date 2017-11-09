@@ -14,7 +14,10 @@ public class MyLogger{
 
     private static DebugLevel debugLevel;
 
-	//Take in an int and assign debugLevel accordingly.
+	/**
+	 * Take in an int and assign debugLevel accordingly.
+	 * @param levelIn integer corresponding to DebugLevel
+	 */
     public static void setDebugValue (int levelIn) {
 	switch (levelIn) {
 	  	case 4: debugLevel = DebugLevel.CONSTRUCTOR; break;
@@ -24,12 +27,19 @@ public class MyLogger{
 	  	case 0: debugLevel = DebugLevel.RELEASE; break;
 	}
     }
-	//Set debugLevel directly from enum.
+	/**
+	 * Set debugLevel directly from enum.
+	 * @param levelIn DebugLevel to log with
+	 */
     public static void setDebugValue (DebugLevel levelIn) {
 	debugLevel = levelIn;
     }
 
-    // Write message if debugLevel is the same as input.
+ 	/** 
+	 * Write message if debugLevel is the same as input.
+	 * @param message text to be printed to stdout
+	 * @param levelIn specifies at what DebugLevel to print the message.
+	 */
     public static void writeMessage (String  message  ,
                                      DebugLevel levelIn ) {
 	if (levelIn == debugLevel)
