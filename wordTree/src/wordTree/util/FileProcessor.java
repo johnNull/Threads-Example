@@ -15,7 +15,10 @@ public class FileProcessor{
 	 * java-read-a-file-line-by-line-code-example/
 	 */
 	public FileProcessor(String dir, Results r){
+		//Output debug message
 		r.writeToScreen("Creating FileProcessor", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set input file
 		file = new File(dir);
 		if(file.exists()){		
 			try{

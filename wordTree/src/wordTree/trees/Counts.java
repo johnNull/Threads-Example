@@ -14,7 +14,10 @@ public class Counts {
 	 * @param r Results instance to print log messages
 	 */
 	public Counts(Results r) {
+		//Output debug message
 		r.writeToScreen("Counts created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set values
 		wordCount = 0;
 		characterCount = 0;
 		uniqueCount = 0;
@@ -27,14 +30,19 @@ public class Counts {
 	 * @param unique word count
 	 */
 	public void addValues(int wc, int cc, int uc) {
+		//Set wordCount
 		wordCount += wc;
 		if (wordCount < 0) {
 			wordCount = 0;
 		}
+		
+		//Set characterCount
 		characterCount += cc;
 		if (characterCount < 0) {
 			characterCount = 0;
 		}
+		
+		//Set uniqueCount
 		uniqueCount += uc;
 		if (uniqueCount < 0) {
 			uniqueCount = 0;

@@ -1,6 +1,5 @@
 package wordTree.trees;
 
-//Note: Class will be updated appropriately, will add JavaDoc comments later
 import wordTree.util.MyLogger;
 import wordTree.util.MyLogger.DebugLevel;
 import wordTree.store.Results;
@@ -15,7 +14,10 @@ public class Node {
 	 * Constructor for Node in BST
 	 */
 	public Node(String w, Results r) {
+		//Output debug message
 		r.writeToScreen("Node created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set values
 		word = w;
 		count = 1;
 		left = null;

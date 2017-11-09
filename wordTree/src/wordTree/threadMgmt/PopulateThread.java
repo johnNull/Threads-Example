@@ -20,7 +20,10 @@ public class PopulateThread implements Runnable {
 	 * @param tm TreeManager to set up binary search tree
 	 */
 	public PopulateThread(FileProcessor f, Results r, TreeManager tm) {
+		//Output debug message
 		r.writeToScreen("PopulateThread created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set values
 		in = f;
 		out = r;
 		tree = tm;
@@ -30,16 +33,24 @@ public class PopulateThread implements Runnable {
 	 * Thread method to add words to the tree
 	 */
 	public void run() {
+		//Output debug message
 		out.writeToScreen("PopulateThread running\n", MyLogger.DebugLevel.IN_RUN);
+		
+		//Read lines
 		String line = in.readLine();
 		while (line != null) {
+			//Output debug message
 			out.writeToScreen("Line: " + line, MyLogger.DebugLevel.READ_LINE);
+			
+			//Populate tree
 			if (!line.equals("")) {
 				words = line.split("\\s+");
 				for(int i = 0; i < words.length; i++){
 					tree.populate(words[i], out);
 				}
 			}
+			
+			//Read next line
 			line = in.readLine();
 		}
 	}

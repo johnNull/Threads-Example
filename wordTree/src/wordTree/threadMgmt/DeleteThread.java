@@ -20,7 +20,10 @@ public class DeleteThread implements Runnable {
 	 * @param s String to delete
 	 */
 	public DeleteThread(Results r, TreeManager tm, String s) {
+		//Output debug message
 		r.writeToScreen("DeleteThread created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set values
 		out = r;
 		tree = tm;
 		word = s;
@@ -30,7 +33,10 @@ public class DeleteThread implements Runnable {
 	 * Thread method to delete one word instance from tree
 	 */
 	public void run() {
+		//Output debug message
 		out.writeToScreen("DeleteThread running\n", MyLogger.DebugLevel.IN_RUN);
+		
+		//Delete instance of word
 		tree.delete(word, out);
 	}
 }

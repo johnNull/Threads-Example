@@ -4,8 +4,6 @@ import wordTree.store.Results;
 import wordTree.util.MyLogger;
 import wordTree.util.MyLogger.DebugLevel;
 
-//Needs to be updated, needs JavaDoc
-
 public class TreeManager {
 	private Node head;
 
@@ -14,7 +12,10 @@ public class TreeManager {
 	 * @param r Results instance for printing
 	 */
 	public TreeManager(Results r) {
+		//Output debug message
 		r.writeToScreen("TreeManager created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set head
 		head = null;
 	}
 	

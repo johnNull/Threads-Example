@@ -23,7 +23,10 @@ public class CreateWorkers {
 	 * @param dltwords Words to be deleted
 	 */
 	public CreateWorkers(FileProcessor f, TreeManager t, Results r1, int nt, String[] dltwords){
+		//Output debug message
 		r1.writeToScreen("CreateWorkers created\n", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set values
 		fp = f;	
 		tm = t;
 		r = r1;
@@ -36,7 +39,7 @@ public class CreateWorkers {
 	}
 
 	/**
-	 * starts all PopulateThreads, joins them
+	 * Starts all PopulateThreads, joins them
 	 */
 	public void startPopulateWorkers(){
 		ArrayList<Thread> threads = new ArrayList<Thread>();
@@ -58,7 +61,7 @@ public class CreateWorkers {
 	}
 
 	/**
-	 * starts all DeleteThreads, joins them
+	 * Starts all DeleteThreads, joins them
 	 */
 	public void startDeleteWorkers(){
 		ArrayList<Thread> threads = new ArrayList<Thread>();

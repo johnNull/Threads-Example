@@ -16,7 +16,10 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * @param dir String specifying containing directory of input file
 	 */
 	public Results(String dir){
+		//Output Debug message
 		writeToScreen("Creating Results instance", MyLogger.DebugLevel.CONSTRUCTOR);
+		
+		//Set directory
 		directory = dir;
 	}
 
@@ -25,8 +28,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * https://stackoverflow.com/questions/2885173/<p>
 	 * how-do-i-create-a-file-and-write-to-it-in-java
 	 */
-	//Note: We need to modify this function
 	public void writeSchedulesToFile(){
+		//Write results string to output file
 		try{
 			if(directory != null && directory.contains(".txt")){
 				PrintWriter writer = new PrintWriter(directory, "UTF-8");
@@ -47,6 +50,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * @param l DebugLevel for when to write message
 	 */
 	public void writeToScreen(String s, DebugLevel l){
+		//Output debug message
 		MyLogger.writeMessage(s, l);
 	}
 	
@@ -55,6 +59,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	 * @param s String to be appended to result String
 	 */
 	public void append(String s){
+		//Append string
 		result.append(s);
 	}
 }
