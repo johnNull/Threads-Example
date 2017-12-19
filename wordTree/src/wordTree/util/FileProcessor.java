@@ -71,7 +71,7 @@ public class FileProcessor{
 	 * java-read-a-file-line-by-line-code-example/<p>
 	 * @return The next line in the text file
 	 */
-	public String readLine(){
+	public synchronized String readLine(){
 		String line = "";
 		if(file.exists()){
 			try{
